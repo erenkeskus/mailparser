@@ -1,0 +1,50 @@
+TEST:
+  version : 1
+  formatters :
+    simple :
+      format : '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  handlers :
+    console :
+      class : logging.StreamHandler
+      level : DEBUG
+      formatter : simple
+      stream : ext://sys.stdout  
+    file :
+      class : logging.FileHandler
+      level : DEBUG
+      filename : 'log_{}.log'
+      formatter : simple
+      encoding: 'utf8'
+  loggers :
+    mailparser :
+      level : DEBUG
+      handlers : [console, file]
+      propagate : false
+    root :
+      level : DEBUG
+      handlers : [console]
+PRODUCTION:
+  version : 1
+  formatters :
+    simple :
+      format : '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  handlers :
+    console :
+      class : logging.StreamHandler
+      level : INFO
+      formatter : simple
+      stream : ext://sys.stdout  
+    file :
+      class : logging.FileHandler
+      level : DEBUG
+      filename : 'log_{}.log'
+      formatter : simple
+      encoding: 'utf8'
+  loggers :
+    mailparser :
+      level : DEBUG
+      handlers : [console, file]
+      propagate : false
+    root :
+      level : DEBUG
+      handlers : [console]

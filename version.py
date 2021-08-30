@@ -1,0 +1,6 @@
+__author__ = "Eren Keşküş Türkdoğan"
+__version__ = "0.0.1"
+__maintainer__ = "erenkeskus"
+__email__ = "eren01@gmail.com"
+__status__ = "Development"
+__url__ = "https://github.com/erenkeskus/mailparser"

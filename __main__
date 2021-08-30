@@ -1,0 +1,8 @@
+---
+app_root_key: APP_ROOT
+con_string: ''
+download_folder: /bin/test/download_folder
+mail_address: ''
+mail_password: ''
+mail_server: ''
+processed_file_dir: processed
