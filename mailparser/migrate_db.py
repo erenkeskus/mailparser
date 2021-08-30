@@ -27,7 +27,6 @@ def populate_plant(db_client):
 
 if __name__=='__main__':
 
-    drop_db()
     create_db()
     with session_scope(config.con_string) as session:
         db_client = DbClient(session)

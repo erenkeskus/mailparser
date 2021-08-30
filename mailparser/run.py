@@ -129,7 +129,7 @@ def execute(attachments=[], testing=False, mail_filters=''):
     if args.Filter: 
         mail_filters +=' '.join(args.Filter)
     if args.Sender_address: 
-        mail_filters = ' '.join(['FROM', args.Sender_address, mail_filters])
+        mail_filters = ' '.join(['FROM', args.Sender_address, mail_filters]).strip()
 
     logger.info(f'Args-> testing: {testing}, attachment: {attachments}, filters: {mail_filters}')
 

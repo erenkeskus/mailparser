@@ -17,7 +17,7 @@ class HydroDailyPlantReadingsImportedFile(Base):
     id = Column(Integer, primary_key=True)
     file_name = Column(Unicode(255), nullable=False)
     processed = Column(Boolean, nullable=False)
-    insert_datetime = Column(DateTime, onupdate=func.now())
+    insert_datetime = Column(DateTime, server_default=func.now())
 
 
 class HydroDataName(Base):
@@ -35,7 +35,7 @@ class Plant(Base):
     transmission_id = Column(Integer)
     transmission_facility_name = Column(Unicode)
     #todo 
-    insert_datetime = Column(DateTime, onupdate=func.now())
+    insert_datetime = Column(DateTime, server_default=func.now())
     update_datetime = Column(DateTime, onupdate=func.now())
 
 
@@ -49,7 +49,7 @@ class HydroDailyPlantReading(Base):
     data_name = Column(Unicode(100), nullable=False)
     value = Column(Float(53), nullable=False)
     unit = Column(Unicode(50))
-    insert_datetime = Column(DateTime, onupdate=func.now())
+    insert_datetime = Column(DateTime, server_default=func.now())
     update_datetime = Column(DateTime, onupdate=func.now())
 
     plant = relationship('Plant')
