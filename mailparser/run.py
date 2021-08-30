@@ -108,11 +108,10 @@ class Runner(object):
                 os.replace(att_path, file_path)
                 logger.info(f'File moved from {att_path} to: {file_path}')
 
-def execute(attachments=[], testing=False, mail_filters=''): 
-    logging_setup.construct_logger(testing=testing)
+
+def arg_parser():
     
     parser = argparse.ArgumentParser()
- 
     parser.add_argument("-t", "--Testing", help = "Set testing true.", dest='Testing', action='store_true')
     required_arguments = parser.add_argument_group('Required args.')
     required_arguments.add_argument("-a", "--Attachment", help = "Name of the attachment/s. Multiple seperated with space.", 
@@ -120,8 +119,15 @@ def execute(attachments=[], testing=False, mail_filters=''):
     required_arguments.add_argument("-s", "--Sender_address", help = "Sender mail address.", required=True)
     parser.add_argument("-f", "--Filter", nargs='*', 
         help = "Search through mail box with filter/s. Multiple seperated with space.")
-    args = parser.parse_args()
+    return parser.parse_args()                
 
+def execute(attachments=[], testing=False, mail_filters=''): 
+    '''
+    Invoked from command line 
+    '''
+    
+    logging_setup.construct_logger(testing=testing)
+    args = arg_parser()
     if args.Testing: 
         testing = True
     if args.Attachment: 
