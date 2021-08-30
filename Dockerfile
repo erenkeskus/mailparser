@@ -16,3 +16,6 @@ COPY ./Pipfile.lock /code/Pipfile.lock
 RUN pip install pipenv && pipenv install --system
 
 COPY . /code/
+
+RUN python /code/setup.py build
+RUN python /code/setup.py install
